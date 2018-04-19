@@ -6,9 +6,10 @@ module.exports = twigLoader;
 Twig.cache(false);
 
 function twigLoader(source) {
+  const callback = this.async();
   twigLoaderAsync(this, source)
-    .then(output => this.callback(null, output))
-    .catch(err => this.callback(err));
+    .then(output => callback(null, output))
+    .catch(err => callback(err));
 }
 
 async function twigLoaderAsync(loaderApi, source) {
