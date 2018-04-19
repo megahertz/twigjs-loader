@@ -1,5 +1,6 @@
 'use strict';
 
+const path = require('path');
 const Twig = require('twig');
 module.exports = twigLoader;
 
@@ -7,25 +8,20 @@ Twig.cache(false);
 
 function twigLoader(source) {
   const callback = this.async();
-  twigLoaderAsync(this, source)
+
+  const template = Twig.twig({
+    path: this.resourcePath,
+    allowInlineIncludes: true,
+    data: source,
+    id: makeTemplateId(this, this.resourcePath),
+  });
+
+  compile(this, template)
     .then(output => callback(null, output))
     .catch(err => callback(err));
 }
 
-async function twigLoaderAsync(loaderApi, source) {
-  const path = await resolveModule(loaderApi, loaderApi.resource);
-
-  const template = Twig.twig({
-    path,
-    allowInlineIncludes: true,
-    data: source,
-    id: path,
-  });
-
-  return compiler(template, loaderApi);
-}
-
-async function compiler(template, loaderApi) {
+async function compile(loaderApi, template) {
   let dependencies = [];
   await each(template.tokens, processToken);
   dependencies = unique(dependencies);
@@ -50,8 +46,10 @@ async function compiler(template, loaderApi) {
   ).join('\n');
 
   async function processDependency(token) {
+    const absolutePath = await resolveModule(loaderApi, token.value);
     dependencies.push(token.value);
-    token.value = await resolveModule(loaderApi, token.value);
+    token.value = makeTemplateId(loaderApi, absolutePath);
+    loaderApi.addDependency(absolutePath);
   }
 
   async function processToken(token) {
@@ -99,6 +97,11 @@ async function each(arr, callback) {
   }
 
   return Promise.all(arr.map(callback));
+}
+
+function makeTemplateId(loaderApi, absolutePath) {
+  const root = loaderApi.rootContext || process.cwd();
+  path.relative(root, absolutePath);
 }
 
 async function resolveModule(loaderApi, modulePath) {
