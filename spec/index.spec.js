@@ -6,17 +6,16 @@ const { compile, renderOutput } = require('./mock');
 describe('twigjs_loader', () => {
   it('should load embed', async () => {
     const out = await compile('templates/embed-simple.twig');
-    //console.log(out);
     expect(out).to.include('require("embed-base.twig");');
     expect(out).to.include('require("embed-include.twig");');
     expect(out).to.include('"value":"spec/templates/embed-base.twig"');
 
-    expect(renderOutput(out)).to.equal([
+    expect(renderOutput(out).trim()).to.equal([
       'START', 'A', 'new header', 'base footer', 'B', '', 'A', 'base header',
       'base footer', 'extended', 'B', '', 'A', 'base header', 'extended',
       'base footer', 'extended', 'B', '', 'A', 'Super cool new header',
-      'Cool footer', 'B', 'END', ''
-    ].join('\n'))
+      'Cool footer', 'B', 'END',
+    ].join('\n'));
   });
 
   it('should extend the parent template', async () => {
@@ -24,7 +23,7 @@ describe('twigjs_loader', () => {
     expect(out).to.include('require("extendee.twig");');
     expect(out).to.include('"value":"spec/templates/extendee.twig"');
 
-    expect(renderOutput(out).trim()).to.equal('ok!')
+    expect(renderOutput(out).trim()).to.equal('ok!');
   });
 
   it('should import macro', async () => {
@@ -32,7 +31,7 @@ describe('twigjs_loader', () => {
     expect(out).to.include('require("macro.twig");');
     expect(out).to.include('"value":"spec/templates/macro.twig"');
 
-    expect(renderOutput(out).trim()).to.equal('Hello World')
+    expect(renderOutput(out).trim()).to.equal('Hello World');
   });
 
   it('should import selected macros from template', async () => {
@@ -47,7 +46,7 @@ describe('twigjs_loader', () => {
       '</div>' +
       '<div class="field red">' +
         '<input type="text" name="password" value="" size="20" />' +
-      '</div>'
+      '</div>',
     ].join(''));
   });
 
