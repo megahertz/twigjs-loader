@@ -41,7 +41,7 @@ async function compile(loaderApi, template) {
     var twig = require("twig").twig;
     var tpl = twig(${JSON.stringify(twigData)});
     module.exports = function(context) { return tpl.render(context); };
-    module.exports.defaults = module.exports;
+    module.exports.default = module.exports;
   `.replace(/^\s+/gm, '');
 
   async function processDependency(token) {
