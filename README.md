@@ -1,7 +1,7 @@
-# twigjs_loader
-[![Build Status](https://travis-ci.org/megahertz/twigjs_loader.svg?branch=master)](https://travis-ci.org/megahertz/twigjs_loader)
-[![npm version](https://badge.fury.io/js/twigjs_loader.svg)](https://badge.fury.io/js/twigjs_loader)
-[![Dependencies status](https://david-dm.org/megahertz/twigjs_loader/status.svg)](https://david-dm.org/megahertz/twigjs_loader)
+# twigjs-loader
+[![Build Status](https://travis-ci.org/megahertz/twigjs-loader.svg?branch=master)](https://travis-ci.org/megahertz/twigjs-loader)
+[![npm version](https://badge.fury.io/js/twigjs-loader.svg)](https://badge.fury.io/js/twigjs-loader)
+[![Dependencies status](https://david-dm.org/megahertz/twigjs-loader/status.svg)](https://david-dm.org/megahertz/twigjs-loader)
 
 ## Description
 
@@ -12,9 +12,9 @@ twig.js loader for Webpack
 
 This package requires node.js 8 at least.
 
-Install with [npm](https://npmjs.org/package/twigjs_loader):
+Install with [npm](https://npmjs.org/package/twigjs-loader):
 
-    $ npm i -D twigjs_loader
+    $ npm i -D twigjs-loader
 
 ## Usage
 
