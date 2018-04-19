@@ -2,6 +2,7 @@
 
 const { readFileSync } = require('fs');
 const path             = require('path');
+const Twig             = require('twig');
 const twigLoader       = require('../index');
 
 class LoaderMock {
@@ -31,5 +32,17 @@ async function compile(templateText) {
   return mock.exec();
 }
 
+function renderOutput(output, context = {}) {
+  const text = output.match(/tpl = twig\((.*)\);/);
+
+  if (!text || !text[1]) {
+    throw new Error('renderOutput: Couldn\'t extract data');
+  }
+
+  const tpl = Twig.twig(JSON.parse(text[1]));
+  return tpl.render(context);
+}
+
 module.exports.compile = compile;
 module.exports.LoaderMock = LoaderMock;
+module.exports.renderOutput = renderOutput;
