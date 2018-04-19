@@ -1,0 +1,45 @@
+{
+  "name": "twigjs-loader",
+  "version": "0.0.0",
+  "description": "twig.js loader for Webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint && npm run mocha",
+    "mocha": "mocha ./spec/*.spec.js",
+    "lint": "eslint ./index.js ./spec/**/*.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "twig",
+    "twig.js",
+    "template",
+    "webpack",
+    "loader"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/megahertz/twigjs-loader.git"
+  },
+  "author": "Alexey Prokhorov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/megahertz/twigjs-loader/issues"
+  },
+  "homepage": "https://github.com/megahertz/twigjs-loader#readme",
+  "engines": {
+    "node": ">=8.0"
+  },
+  "peerDependencies": {
+    "twig": "1.x"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "mocha": "*",
+    "twig": "*"
+  }
+}
