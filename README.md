@@ -43,7 +43,7 @@ module.exports = {
 
 ### With Express
 
-[example](examples/express) [typescript example](examples/typescript)
+[example](examples/express), [typescript example](examples/typescript)
 
 `$ npm i twigjs-loader`
 
