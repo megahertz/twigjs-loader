@@ -1,6 +1,6 @@
 {
   "name": "twigjs-loader",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "twig.js loader for Webpack",
   "main": "index.js",
   "scripts": {
