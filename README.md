@@ -43,11 +43,9 @@ module.exports = {
 
 ### With Express
 
-[(example)](examples/express)
+[example](examples/express) [typescript example](examples/typescript)
 
-[(typescript example)](examples/typescript)
-
-`npm i twigjs-loader`
+`$ npm i twigjs-loader`
 
 **index.js:**
 ```js
