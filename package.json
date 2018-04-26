@@ -1,6 +1,6 @@
 {
   "name": "twigjs-loader",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "twig.js loader for Webpack",
   "main": "index.js",
   "scripts": {
@@ -9,8 +9,10 @@
     "lint": "eslint ./index.js ./spec/**/*.js"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "typings/*"
   ],
+  "typings": "typings/index.d.ts",
   "keywords": [
     "twig",
     "twig.js",
@@ -35,10 +37,12 @@
     "twig": "1.x"
   },
   "devDependencies": {
+    "@types/express": "^4.11.1",
     "chai": "*",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.11.0",
+    "express": "^4.16.3",
     "mocha": "*",
     "twig": "*"
   }

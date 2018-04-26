@@ -1,0 +1,24 @@
+{
+  "name": "twigjs-loader-example-typescript",
+  "version": "1.0.0",
+  "description": "twigjs-loader in typescript project",
+  "private": true,
+  "scripts": {
+    "build": "webpack --mode=development",
+    "start": "node dist/server.js"
+  },
+  "devDependencies": {
+    "@types/express": "^4.11.1",
+    "@types/node": "^9.6.6",
+    "awesome-typescript-loader": "^5.0.0",
+    "typescript": "^2.8.3",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.14",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "twig": "^1.11.0",
+    "twigjs-loader": "0.2.0"
+  }
+}

@@ -2,7 +2,10 @@
 
 const path = require('path');
 const Twig = require('twig');
+
 module.exports = twigLoader;
+module.exports.ExpressView = ExpressView;
+module.exports.default = module.exports;
 
 Twig.cache(false);
 
@@ -41,6 +44,7 @@ async function compile(loaderApi, template) {
     var twig = require("twig").twig;
     var tpl = twig(${JSON.stringify(twigData)});
     module.exports = function(context) { return tpl.render(context); };
+    module.exports.id = ${JSON.stringify(template.id)};
     module.exports.default = module.exports;
   `.replace(/^\s+/gm, '');
 
@@ -113,4 +117,15 @@ async function resolveModule(loaderApi, modulePath) {
 
 function unique(arr) {
   return arr.filter((val, i, self) => self.indexOf(val) === i);
+}
+
+/**
+ * Render compiled twig template
+ */
+function ExpressView(view) {
+  this.render = (options, callback) => {
+    const variables = { ...options._locals, ...options };
+    callback(null, view(variables));
+  };
+  this.path = view.id;
 }
