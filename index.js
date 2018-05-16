@@ -13,10 +13,11 @@ function twigLoader(source) {
   const callback = this.async();
 
   const template = Twig.twig({
-    path: this.resourcePath,
     allowInlineIncludes: true,
     data: source,
     id: makeTemplateId(this, this.resourcePath),
+    path: this.resourcePath,
+    rethrow: true,
   });
 
   compile(this, template)

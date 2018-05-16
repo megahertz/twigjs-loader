@@ -58,4 +58,10 @@ describe('twigjs_loader', () => {
     expect(renderOutput(out, { test: 'tst' }).trim())
       .to.equal('BeforeTest template = tst\n\nAfter');
   });
+
+  it('should handle twig exceptions', () => {
+    expect(async () => {
+      await compile('templates/error-compile.twig');
+    }).to.throw;
+  });
 });
