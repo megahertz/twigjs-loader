@@ -3,6 +3,8 @@
 const path = require('path');
 const Twig = require('twig');
 
+const getOptions = require('./getOptions');
+
 module.exports = twigLoader;
 module.exports.ExpressView = ExpressView;
 module.exports.default = module.exports;
@@ -10,6 +12,8 @@ module.exports.default = module.exports;
 Twig.cache(false);
 
 function twigLoader(source) {
+  const options = getOptions(this);
+
   const callback = this.async();
 
   const template = Twig.twig({
@@ -20,12 +24,12 @@ function twigLoader(source) {
     rethrow: true,
   });
 
-  compile(this, template)
+  compile(this, template, options.twigPath)
     .then(output => callback(null, output))
     .catch(err => callback(err));
 }
 
-async function compile(loaderApi, template) {
+async function compile(loaderApi, template, twigPath) {
   let dependencies = [];
   await each(template.tokens, processToken);
 
@@ -42,7 +46,7 @@ async function compile(loaderApi, template) {
 
   return `
     ${dependenciesString}
-    var twig = require("twig").twig;
+    var twig = require("${twigPath}").twig;
     var tpl = twig(${JSON.stringify(twigData)});
     module.exports = function(context) { return tpl.render(context); };
     module.exports.id = ${JSON.stringify(template.id)};

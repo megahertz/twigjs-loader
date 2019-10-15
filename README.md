@@ -41,6 +41,14 @@ module.exports = {
 
 ```
 
+#### Options
+
+- `twigPath`: optional; an absolute path pointing to the `twig` module. 
+    This ensures that a same Twig instance is used for both project templates and package templates.
+    Defaults to `'twig'`.
+
+  Example: `path.resolve(process.cwd(), 'node_modules/twig')`
+
 ### With Express
 
 [example](examples/express), [typescript example](examples/typescript)
