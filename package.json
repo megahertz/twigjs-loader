@@ -1,12 +1,14 @@
 {
   "name": "twigjs-loader",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "twig.js loader for Webpack",
   "main": "index.js",
   "scripts": {
     "test": "npm run lint && npm run mocha",
     "mocha": "mocha ./spec/*.spec.js",
-    "lint": "eslint ./index.js ./spec/**/*.js"
+    "lint": "eslint ./index.js ./spec/**/*.js",
+    "postversion": "git push && git push --tags",
+    "prepack": "npm run test"
   },
   "files": [
     "index.js",
@@ -20,15 +22,10 @@
     "webpack",
     "loader"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/megahertz/twigjs-loader.git"
-  },
+  "repository": "megahertz/twigjs-loader",
   "author": "Alexey Prokhorov",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/megahertz/twigjs-loader/issues"
-  },
+  "bugs": "https://github.com/megahertz/twigjs-loader/issues",
   "homepage": "https://github.com/megahertz/twigjs-loader#readme",
   "engines": {
     "node": ">=8.0"
