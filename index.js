@@ -40,14 +40,12 @@ async function compile(loaderApi, template) {
     .map(d => `require(${JSON.stringify(d)});`)
     .join('\n');
 
-  return `
-    ${dependenciesString}
-    var twig = require("twig").twig;
-    var tpl = twig(${JSON.stringify(twigData)});
-    module.exports = function(context) { return tpl.render(context); };
-    module.exports.id = ${JSON.stringify(template.id)};
-    module.exports.default = module.exports;
-  `.replace(/^\s+/gm, '');
+  let renderer = loaderApi.query && loaderApi.query.renderTemplate;
+  if (typeof renderer !== 'function') {
+    renderer = renderTemplate;
+  }
+
+  return renderer(twigData, dependenciesString);
 
   async function processDependency(token) {
     const absolutePath = await resolveModule(loaderApi, token.value);
@@ -106,6 +104,17 @@ async function each(arr, callback) {
 function makeTemplateId(loaderApi, absolutePath) {
   const root = loaderApi.rootContext || process.cwd();
   return path.relative(root, absolutePath);
+}
+
+function renderTemplate(twigData, dependencies) {
+  return `
+    ${dependencies}
+    var twig = require("twig").twig;
+    var tpl = twig(${JSON.stringify(twigData)});
+    module.exports = function(context) { return tpl.render(context); };
+    module.exports.id = ${JSON.stringify(twigData.id)};
+    module.exports.default = module.exports;
+  `.replace(/^\s+/gm, '');
 }
 
 async function resolveModule(loaderApi, modulePath) {
