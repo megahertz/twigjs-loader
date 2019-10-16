@@ -5,9 +5,7 @@ const nodeExternals = require('webpack-node-externals');
 module.exports = {
   devtool: 'source-map',
 
-  entry: {
-    main: './src/index.ts',
-  },
+  entry: './src/index.ts',
 
   externals: [
     nodeExternals(),

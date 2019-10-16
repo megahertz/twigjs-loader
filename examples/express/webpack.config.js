@@ -14,7 +14,7 @@ module.exports = {
       {
         test: /\.twig$/,
         use:  'twigjs-loader',
-      }
+      },
     ],
   },
 };

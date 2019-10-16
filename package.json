@@ -4,9 +4,9 @@
   "description": "twig.js loader for Webpack",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint && npm run mocha",
-    "mocha": "mocha ./spec/*.spec.js",
-    "lint": "eslint ./index.js ./spec/**/*.js",
+    "test": "npm run humile && npm run lint",
+    "humile": "humile",
+    "lint": "eslint index.js __specs__/**/*.js",
     "postversion": "git push && git push --tags",
     "prepack": "npm run test"
   },
@@ -34,13 +34,12 @@
     "twig": "1.x"
   },
   "devDependencies": {
-    "@types/express": "^4.11.1",
-    "chai": "*",
+    "@types/express": "^4.17.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.11.0",
-    "express": "^4.16.3",
-    "mocha": "*",
+    "eslint-plugin-import": "^2.18.2",
+    "express": "^4.17.1",
+    "humile": "^0.2.3",
     "twig": "*"
   }
 }
