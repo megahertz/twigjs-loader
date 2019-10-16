@@ -8,13 +8,13 @@
     "start": "node dist/main.js"
   },
   "devDependencies": {
-    "webpack": "^4.6.0",
-    "webpack-cli": "^2.0.14",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
-    "express": "^4.16.3",
-    "twig": "^1.11.0",
-    "twigjs-loader": "0.2.0"
+    "express": "^4.17.1",
+    "twig": "^1.13.3",
+    "twigjs-loader": "1.x"
   }
 }
