@@ -45,7 +45,7 @@ async function compile(loaderApi, template) {
     renderer = renderTemplate;
   }
 
-  return renderer(twigData, dependenciesString);
+  return renderer(twigData, dependenciesString, loaderApi.hot);
 
   async function processDependency(token) {
     const absolutePath = await resolveModule(loaderApi, token.value);
@@ -106,9 +106,11 @@ function makeTemplateId(loaderApi, absolutePath) {
   return path.relative(root, absolutePath);
 }
 
-function renderTemplate(twigData, dependencies) {
+function renderTemplate(twigData, dependencies, isHot) {
+  const hmrFix = isHot ? '\n    require("twig").cache(false);' : '';
+
   return `
-    ${dependencies}
+    ${dependencies} ${hmrFix}
     var twig = require("twig").twig;
     var tpl = twig(${JSON.stringify(twigData)});
     module.exports = function(context) { return tpl.render(context); };
