@@ -46,11 +46,7 @@
     "no-underscore-dangle": 0,
     "no-unused-expressions": 0,
     "no-use-before-define": 0,
-    "object-curly-newline": ["error", {
-      "ObjectExpression": { "multiline": true },
-      "ObjectPattern": { "multiline": true },
-      "ImportDeclaration": { "multiline": true }
-    }],
+    "object-curly-newline": 0,
     "spaced-comment": [2, "always", {
       "line": { "markers": ["*package", "!", ",", "noinspection"] },
       "block": {
