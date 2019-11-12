@@ -7,8 +7,8 @@
     "test": "npm run humile && npm run lint",
     "humile": "humile",
     "lint": "eslint index.js '__specs__/**/*.js'",
-    "postversion": "git push && git push --tags",
-    "prepack": "npm run test"
+    "postversion": "npm test && git push && git push --tags",
+    "prepack": "npm test"
   },
   "files": [
     "index.js",
