@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run humile && npm run lint",
     "humile": "humile",
-    "lint": "eslint index.js __specs__/**/*.js",
+    "lint": "eslint index.js '__specs__/**/*.js'",
     "postversion": "git push && git push --tags",
     "prepack": "npm run test"
   },
@@ -39,7 +39,7 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.18.2",
     "express": "^4.17.1",
-    "humile": "^0.2.3",
+    "humile": "^0.2.14",
     "twig": "*"
   }
 }
