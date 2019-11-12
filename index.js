@@ -106,6 +106,14 @@ function makeTemplateId(loaderApi, absolutePath) {
   return path.relative(root, absolutePath);
 }
 
+/**
+ * @param {object}  twigData        Data passed to the Twig.twig function
+ * @param {string}  twigData.id     Template id (relative path)
+ * @param {object}  twigData.tokens Parsed AST of a template
+ * @param {string}  dependencies    Code which requires related templates
+ * @param {boolean} isHot           Is Hot Module Replacement enabled
+ * @return {string}
+ */
 function renderTemplate(twigData, dependencies, isHot) {
   const hmrFix = isHot ? '\n    require("twig").cache(false);' : '';
 
