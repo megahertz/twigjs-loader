@@ -67,6 +67,18 @@ app.get('/', (req, res) => {
 app.listen(8080);
 ```
 
+### On frontend
+
+ - [example](examples/frontend)
+
+```js
+import indexView from './views/index.twig';
+
+document.body.innerHTML = indexView({
+  url: location.href,
+})
+```
+
 ## Configure
 
 You can configure how a template is compiled by webpack using the
