@@ -66,7 +66,9 @@ async function compile(loaderApi, template) {
       case 'Twig.logic.type.else':
       case 'Twig.logic.type.for':
       case 'Twig.logic.type.spaceless':
-      case 'Twig.logic.type.macro': {
+      case 'Twig.logic.type.macro':
+      case 'Twig.logic.type.apply':
+      case 'Twig.logic.type.setcapture': {
         await each(token.token.output, processToken);
         break;
       }
