@@ -39,7 +39,10 @@ function renderOutput(output, context = {}) {
     throw new Error('renderOutput: Couldn\'t extract data');
   }
 
-  const tpl = Twig.twig(JSON.parse(text[1]));
+  const ast = JSON.parse(text[1]);
+  ast.path = './';
+
+  const tpl = Twig.twig(ast);
   return tpl.render(context);
 }
 
