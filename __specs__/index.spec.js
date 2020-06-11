@@ -41,12 +41,12 @@ describe('twigjs_loader', () => {
 
     expect(renderOutput(out).trim()).toEqual([
       'Hello Twig.js',
-      '<div class="field">' +
-        '<input type="text" name="text" value="" size="20" />' +
-      '</div>' +
-      '<div class="field red">' +
-        '<input type="text" name="password" value="" size="20" />' +
-      '</div>',
+      '<div class="field">'
+        + '<input type="text" name="text" value="" size="20" />'
+      + '</div>'
+      + '<div class="field red">'
+        + '<input type="text" name="password" value="" size="20" />'
+      + '</div>',
     ].join(''));
   });
 
