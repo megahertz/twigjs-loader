@@ -1,7 +1,7 @@
 # twigjs-loader
 [![Build Status](https://travis-ci.org/megahertz/twigjs-loader.svg?branch=master)](https://travis-ci.org/megahertz/twigjs-loader)
 [![npm version](https://badge.fury.io/js/twigjs-loader.svg)](https://badge.fury.io/js/twigjs-loader)
-[![Dependencies status](https://david-dm.org/megahertz/twigjs-loader/status.svg)](https://david-dm.org/megahertz/twigjs-loader)
+[![Dependencies status](https://img.shields.io/david/megahertz/twigjs-loader/status.svg)](https://david-dm.org/megahertz/twigjs-loader)
 
 ## Description
 
