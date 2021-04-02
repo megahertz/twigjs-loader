@@ -49,7 +49,6 @@ module.exports = {
   resolve: {
     alias: {
       '@views': path.resolve(__dirname, 'src/views/include'),
-      'views::': path.join(__dirname, 'src/views/include/'),
     },
     plugins: [new LegacyNsResolverPlugin()],
   },
