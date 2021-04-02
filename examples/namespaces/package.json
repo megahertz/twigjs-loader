@@ -1,0 +1,20 @@
+{
+  "name": "twigjs-loader-example-express",
+  "version": "1.0.0",
+  "description": "twigjs-loader in express project",
+  "private": true,
+  "scripts": {
+    "build": "webpack --mode=development",
+    "start": "node dist/main.js"
+  },
+  "devDependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "twig": "^1.13.3",
+    "twigjs-loader": "1.x"
+  }
+}

@@ -123,6 +123,12 @@ module.exports = {
 
 ```
 
+## Path resolving
+
+The module uses webpack for resolving template path, so it doesn't resolve
+path by itself. If you need custom file path resolution (eg namespaces),
+check [the example](examples/namespaces).
+
 ## Credits
 
 Based on [zimmo-be/twig-loader](https://github.com/zimmo-be/twig-loader)
