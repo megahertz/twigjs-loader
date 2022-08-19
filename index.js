@@ -37,6 +37,7 @@ async function compile(loaderApi, template) {
   };
 
   const dependenciesString = unique(dependencies)
+    .sort()
     .map(d => `require(${JSON.stringify(d)});`)
     .join('\n');
 
