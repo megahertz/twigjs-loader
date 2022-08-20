@@ -35,11 +35,11 @@
   },
   "devDependencies": {
     "@types/express": "*",
-    "eslint": "^7.2.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.21.2",
+    "eslint": "^8.22.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
     "express": "*",
-    "humile": "^0.2.17",
+    "humile": "^0.5.0",
     "twig": "*"
   }
 }
